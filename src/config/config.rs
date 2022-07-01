@@ -37,6 +37,7 @@ fn parse_config(path: &str) -> Result<Config, Box<dyn error::Error>> {
 /// config = parse_config2("./app.yml")
 /// assert!(config.is_ok());
 /// ```
+#[allow(dead_code)]
 fn parse_config2(path: &str) -> Result<Config, Box<dyn error::Error>> {
     let content = read_to_string(&path)?;
     let schema = serde_yaml::from_str::<RootSchema>(&content);

@@ -1,4 +1,5 @@
 mod config;
+mod email;
 use config::global_config;
 
 fn main() {
