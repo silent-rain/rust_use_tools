@@ -1,0 +1,16 @@
+email:
+  username: ""
+  password: ""
+  host: ""
+  port: 556
+  receivers: "xx;xx"
+
+mysql: # mysql 配置
+  host: "127.0.0.1"
+  port: 3306
+  user: "one"
+  password: "pass"
+  db: seasnft
+  pool_min_idle: 8 # 最小连接数
+  pool_max_open: 32 # 最大连接数
+  timeout_seconds: 15 # 连接超时时间单位秒
