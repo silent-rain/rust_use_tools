@@ -1,5 +1,5 @@
 /*!
- * 日志库使用案例
+ * 日志库门面库使用案例
 */
 use log::log_enabled;
 use log::Level::Debug;
