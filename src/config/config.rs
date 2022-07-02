@@ -22,7 +22,7 @@ static GLOBAL_CONFIG: Lazy<Arc<Config>> = Lazy::new(|| {
 /// 解析配置文件
 /// # Examples
 /// ```
-/// config = parse_config("./app.yml")
+/// let config = parse_config("./app.yml");
 /// assert!(config.is_ok());
 /// ```
 fn parse_config(path: &str) -> Result<Config, Box<dyn error::Error>> {
@@ -34,7 +34,7 @@ fn parse_config(path: &str) -> Result<Config, Box<dyn error::Error>> {
 /// 解析配置文件
 /// # Examples
 /// ```
-/// config = parse_config2("./app.yml")
+/// let config = parse_config2("./app.yml");
 /// assert!(config.is_ok());
 /// ```
 #[allow(dead_code)]
