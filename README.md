@@ -32,3 +32,13 @@ seas7 nft 自动化工具
 - t，target - The target of the log message. 可能与 Module 相同
 - T，thread - The name of the current thread. 线程名称
 - I，thread_id - The ID of the current thread. 线程 ID
+
+
+## bin目录
+- 每个文件都有单独的main入口
+- 想要引入src资源的包, 需要在lib中进行公开模块
+- 指定执行bin包: cargo run --bin log4rs_bin
+### 参考文档
+- https://www.cnblogs.com/s-seven/p/14864269.html
+- https://rustcc.cn/article?id=dcc947c4-21a9-4ba0-ba59-43f6b580aae6
+
