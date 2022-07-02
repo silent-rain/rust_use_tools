@@ -6,8 +6,8 @@ seas7 nft 自动化工具
 
 
 ## 待添加
-- [ ] yaml 文件读取
-- [ ] email 邮件发送 163/126 ssl
+- [ ] yaml 读取yaml文件
+- [ ] email 发送邮件 163/126 ssl
 - [ ] 打开链接或文件 webbrowser/opener
 - [x] excel 读写
 - [x] 网络请求 Reqwest
