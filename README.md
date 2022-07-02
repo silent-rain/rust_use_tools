@@ -24,15 +24,15 @@ cargo build --release --target x86_64-pc-windows-gnu
 
 
 ### 待添加
-- [ ] yaml 读取yaml文件
-- [ ] email 发送邮件 163/126 ssl
+- [ ] yaml 读取yaml文件 serde_yaml
+- [ ] email 发送邮件 lettre lettre_email
 - [ ] 打开链接或文件 webbrowser/opener
+- [ ] 日志  log4rs/tracing
 - [x] excel 读写
 - [x] 网络请求 Reqwest
-- [x] http 服务
-- [x] Tauri GUI
-- [ ] 日志  log4rs tracing
-- [x] SQL
+- [x] web服务 Rocket
+- [x] GUI Tauri
+- [x] SQL sqlx
 - [x] 基于属性的测试库 proptest
 - [x] 把Go或其他c-lib库混入Rust libloading
 
