@@ -2,10 +2,28 @@
 seas7 nft 自动化工具
 
 
+## 编译
+- 编译(Linux环境程序)
+```
+cargo build --release --target x86_64-unknown-linux-gnu
+```
+
+- 编译(Windows环境程序)
+```
+sudo apt install mingw-w64
+cargo build --release --target x86_64-pc-windows-gnu
+```
+
+### 交叉编译参考文档
+- https://www.cnblogs.com/007sx/p/15191400.html
+- [Rust 交叉编译与条件编译总结](https://www.jianshu.com/p/0e4251bc10eb)
+- [如何在Linux操作系统上交叉编译Rust程序？](https://magiclen.org/rust-cross-compile/)
+- [Rust交叉编译Mac编译Linux/Windows平台](https://www.cnblogs.com/007sx/p/15191400.html)
+
 ## 工具库
 
 
-## 待添加
+### 待添加
 - [ ] yaml 读取yaml文件
 - [ ] email 发送邮件 163/126 ssl
 - [ ] 打开链接或文件 webbrowser/opener
@@ -20,7 +38,7 @@ seas7 nft 自动化工具
 
 
 
-## Log4rs 的 pattern 支持以下内容：
+### Log4rs 的 pattern 支持以下内容：
 - d，data 日期，默认为 ISO 9601 格式，可以通过 {d(%Y-%m-%d %H:%M:%S)} 这种方式改变日期格式
 - l，log 级别
 - h，高亮显示，debug 灰，info 绿，warn 黄，error 红
@@ -39,7 +57,15 @@ seas7 nft 自动化工具
 - 每个文件都有单独的main入口
 - 想要引入src资源的包, 需要在lib中进行公开模块
 - 指定执行bin包: cargo run --bin log4rs_bin
-### 参考文档
+
+
+### bin目录参考文档
 - https://www.cnblogs.com/s-seven/p/14864269.html
 - https://rustcc.cn/article?id=dcc947c4-21a9-4ba0-ba59-43f6b580aae6
 
+
+## rustup 指令
+- 本机编译链工具: rustup show
+- 编译链列表: rustup target list
+- 添加指定编译链: rustup target add x86_64-pc-windows-gnu
+- 安装工具链: rustup toolchain install x86_64-pc-windows-gnu

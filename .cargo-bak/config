@@ -1,0 +1,25 @@
+# 不用添加配置信息直接指定编译
+[build]
+target = "x86_64-unknown-linux-gnu"
+
+
+# arm64
+[target.aarch64-unknown-linux-gnu]
+# linker = "aarch64-linux-gnu-gcc"
+linker = "aarch64-unknown-linux-gnu"
+
+
+# linux 动态链
+[target.x86_64-unknown-linux-musl]
+linker = "x86_64-linux-musl-gcc"
+
+
+# linux
+[target.x86_64-unknown-linux-gnu]
+linker = "x86_64-linux-gnu-gcc"
+
+
+# Windows
+[target.x86_64-pc-windows-gnu]
+linker = "x86_64-w64-mingw32-gcc"
+# ar = "x86_64-w64-mingw32-gcc-ar"
