@@ -69,3 +69,8 @@ cargo build --release --target x86_64-pc-windows-gnu
 - 编译链列表: rustup target list
 - 添加指定编译链: rustup target add x86_64-pc-windows-gnu
 - 安装工具链: rustup toolchain install x86_64-pc-windows-gnu
+
+## 软件库参考地址
+- [crates.io](https://crates.io/)
+- [GitHub软件库精选](https://github.com/rust-unofficial/awesome-rust)
+
