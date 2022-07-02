@@ -28,7 +28,7 @@ cargo build --release --target x86_64-pc-windows-gnu
 - [ ] email 发送邮件 lettre lettre_email
 - [ ] 打开链接或文件 webbrowser/opener
 - [ ] 日志  log4rs/tracing
-- [ ] 序化、反序化
+- [ ] 序化、反序化 serde_json
 - [x] excel 读写
 - [x] 网络请求 Reqwest
 - [x] web服务 Rocket
