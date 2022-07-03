@@ -1,4 +1,4 @@
-[package]
+Cargo.lock [package]
 name = "seasnft7"
 homepage = ""
 repository = ""
@@ -26,3 +26,4 @@ webbrowser = "0.6.0"
 opener = "0.5.0"
 reqwest = { version = "0.11.10", features = ["blocking","json"] }
 tokio = { version = "1.17.0", features = ["full"] }
+csv = "1.1.6"

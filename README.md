@@ -29,8 +29,11 @@ cargo build --release --target x86_64-pc-windows-gnu
 - [ ] 打开链接或文件 webbrowser/opener
 - [ ] 日志  log4rs/tracing
 - [ ] 序化、反序化 serde_json
-- [x] excel 读写
+- [ ] CSV读写器 csv
+- [x] excel 读写 calamine(reader)/umya-spreadsheet/excelize-rs/xlsxwriter-rs/xlsx-rs/calamine(reader)/teletypewriter
+- [x] 时间库
 - [ ] 网络请求 Reqwest
+- [x] uuid
 - [x] web服务 Rocket
 - [x] GUI Tauri
 - [x] SQL sqlx
