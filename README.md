@@ -32,6 +32,8 @@ cargo build --release --target x86_64-pc-windows-gnu
 - [ ] 时间库 chrono
 - [ ] 网络请求 Reqwest
 - [ ] uuid
+- [ ] 文件夹操作 std::fs
+- [ ] 文件路径操作 std::path::Path
 - [x] web服务 Rocket
 - [x] GUI Tauri
 - [x] SQL sqlx
