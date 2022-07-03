@@ -22,8 +22,6 @@ cargo build --release --target x86_64-pc-windows-gnu
 
 ## 工具库
 
-
-### 待添加
 - [ ] yaml 读取yaml文件 serde_yaml
 - [ ] email 发送邮件 lettre lettre_email
 - [ ] 打开链接或文件 webbrowser/opener
@@ -33,6 +31,7 @@ cargo build --release --target x86_64-pc-windows-gnu
 - [x] excel 读写 calamine(reader)/umya-spreadsheet/excelize-rs/xlsxwriter-rs/xlsx-rs/calamine(reader)/teletypewriter
 - [x] 时间库
 - [ ] 网络请求 Reqwest
+- [x] os
 - [x] uuid
 - [x] web服务 Rocket
 - [x] GUI Tauri
