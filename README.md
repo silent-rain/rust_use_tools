@@ -28,7 +28,7 @@ cargo build --release --target x86_64-pc-windows-gnu
 - [ ] 日志  log4rs/tracing
 - [ ] 序化、反序化 serde_json
 - [ ] CSV读写器 csv
-- [x] excel 读写 calamine(reader)/umya-spreadsheet/excelize-rs/xlsxwriter-rs/xlsx-rs/calamine(reader)/teletypewriter
+- [ ] excel 读写 calamine(reader)/umya-spreadsheet/excelize-rs/xlsxwriter-rs/xlsx-rs/calamine(reader)/teletypewriter
 - [ ] 时间库 chrono
 - [ ] 网络请求 Reqwest
 - [ ] uuid
