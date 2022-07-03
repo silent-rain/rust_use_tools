@@ -31,7 +31,7 @@ cargo build --release --target x86_64-pc-windows-gnu
 - [x] excel 读写 calamine(reader)/umya-spreadsheet/excelize-rs/xlsxwriter-rs/xlsx-rs/calamine(reader)/teletypewriter
 - [ ] 时间库 chrono
 - [ ] 网络请求 Reqwest
-- [x] uuid
+- [ ] uuid
 - [x] web服务 Rocket
 - [x] GUI Tauri
 - [x] SQL sqlx
