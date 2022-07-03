@@ -1,3 +1,8 @@
+/*!日志库
+ * [dependencies]
+ * log = "0.4.16"
+ * log4rs = "1.0.0"    # log4rs for log
+ */
 use log::{debug, error, info, trace, warn};
 use log4rs;
 

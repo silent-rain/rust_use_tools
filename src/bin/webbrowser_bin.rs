@@ -1,5 +1,6 @@
 /*!打开链接或浏览器
- *
+ * [dependencies]
+ * webbrowser = "0.6.0"
  */
 use webbrowser;
 

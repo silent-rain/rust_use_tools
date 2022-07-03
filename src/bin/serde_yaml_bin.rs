@@ -1,4 +1,8 @@
-/*!读取yaml文件 */
+/*!读取yaml文件
+ * [dependencies]
+ * serde = { version = "1.0.136", features = ["derive"] }
+ * serde_yaml = "0.8.23"
+ */
 use schemars::schema::RootSchema;
 use serde::{Deserialize, Serialize};
 use serde_json;

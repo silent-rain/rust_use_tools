@@ -1,5 +1,6 @@
 /*!打开链接或文件
- *
+ * [dependencies]
+ * opener = "0.5.0"
  */
 use opener;
 

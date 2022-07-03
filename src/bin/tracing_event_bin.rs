@@ -1,3 +1,8 @@
+/*!日志-事件
+ * [dependencies]
+ * tracing = "0.1.32"
+ * tracing-subscriber = "0.3.9"
+*/
 use tracing::{event, span, Level};
 use tracing_subscriber::{fmt, layer::SubscriberExt, util::SubscriberInitExt};
 

@@ -1,3 +1,8 @@
+/*!日志-自定义日志输出
+ * [dependencies]
+ * tracing = "0.1.32"
+ * tracing-subscriber = "0.3.9"
+*/
 use tracing::{debug_span, info, info_span};
 use tracing_subscriber::prelude::*;
 

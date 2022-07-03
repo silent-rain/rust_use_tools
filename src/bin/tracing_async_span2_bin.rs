@@ -1,3 +1,9 @@
+/*!异步日志使用
+ * [dependencies]
+ * tracing = "0.1.32"
+ * tracing-subscriber = "0.3.9"
+ * tokio = { version = "1.17.0", features = ["full"] }
+ */
 use std::{
     io::{self, Write},
     net::TcpStream,

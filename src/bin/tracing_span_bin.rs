@@ -1,3 +1,8 @@
+/*!日志-简单使用
+ * [dependencies]
+ * tracing = "0.1.32"
+ * tracing-subscriber = "0.3.9"
+*/
 use tracing::{span, Level, info};
 
 

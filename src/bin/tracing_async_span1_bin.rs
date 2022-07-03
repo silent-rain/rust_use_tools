@@ -1,3 +1,9 @@
+/*!异步日志使用 - 不推荐
+ * [dependencies]
+ * tracing = "0.1.32"
+ * tracing-subscriber = "0.3.9"
+ * tokio = { version = "1.17.0", features = ["full"] }
+ */
 use tracing::{info_span};
 
 async fn some_other_async_function() -> Result<i32, ()> {
@@ -16,5 +22,9 @@ async fn my_async_function()-> Result<i32, ()> {
     // ...
 }
 
-fn main() {}
+#[tokio::main]
+async fn main() -> Result<(), ()>{
+    my_async_function().await?;
+    Ok(())
+}
 

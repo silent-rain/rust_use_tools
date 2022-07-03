@@ -1,7 +1,11 @@
-/*
-如果想要将某个函数的整个函数体都设置为 span 的范围，
-最简单的方法就是为函数标记上 #[instrument]，此时 tracing 会自动为函数创建一个 span，
-span 名跟函数名相同，在输出的信息中还会自动带上函数参数。
+/*!日志-函数设定
+ * [dependencies]
+ * tracing = "0.1.32"
+ * tracing-subscriber = "0.3.9"
+ * 
+ * 如果想要将某个函数的整个函数体都设置为 span 的范围，
+ * 最简单的方法就是为函数标记上 #[instrument]，此时 tracing 会自动为函数创建一个 span，
+ * span 名跟函数名相同，在输出的信息中还会自动带上函数参数。
 */
 use tracing::{info, instrument};
 use tracing_subscriber::{fmt, layer::SubscriberExt, util::SubscriberInitExt};
