@@ -36,7 +36,7 @@ cargo build --release --target x86_64-pc-windows-gnu
 - [ ] 文件路径操作 std::path::Path
 - [x] web服务 Rocket
 - [x] GUI Tauri
-- [x] SQL sqlx
+- [ ] SQL sqlx
 - [x] 基于属性的测试库 proptest
 - [x] 把Go或其他c-lib库混入Rust libloading
 
