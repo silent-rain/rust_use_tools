@@ -29,9 +29,8 @@ cargo build --release --target x86_64-pc-windows-gnu
 - [ ] 序化、反序化 serde_json
 - [ ] CSV读写器 csv
 - [x] excel 读写 calamine(reader)/umya-spreadsheet/excelize-rs/xlsxwriter-rs/xlsx-rs/calamine(reader)/teletypewriter
-- [x] 时间库
+- [ ] 时间库 chrono
 - [ ] 网络请求 Reqwest
-- [x] os
 - [x] uuid
 - [x] web服务 Rocket
 - [x] GUI Tauri
