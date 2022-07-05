@@ -84,3 +84,8 @@ cargo build --release --target x86_64-pc-windows-gnu
 ## Windows 编译软件图标
 - [给rust写的windows程序加个图标](https://zhuanlan.zhihu.com/p/366341784)
 - [embed-resource](https://crates.io/crates/embed-resource)
+
+
+## 库参考文档
+- [Rodio - 一个Rust音频播放库](https://blog.csdn.net/u012067469/article/details/109153091)
+- 

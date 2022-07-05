@@ -3,7 +3,7 @@
  * umya-spreadsheet = "0.7"
  */
 
-use seasnft7::excel;
+use rust_use_tools::excel;
 
 fn main() {
     let data_list = vec![

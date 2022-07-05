@@ -2047,6 +2047,35 @@ dependencies = [
 ]
 
 [[package]]
+name = "rust_use_tools"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "csv",
+ "embed-resource",
+ "futures",
+ "lettre",
+ "lettre_email",
+ "log",
+ "log4rs",
+ "md5",
+ "once_cell",
+ "opener",
+ "reqwest",
+ "schemars",
+ "serde",
+ "serde_json",
+ "serde_yaml",
+ "sqlx",
+ "tokio",
+ "tracing",
+ "tracing-subscriber",
+ "umya-spreadsheet",
+ "uuid 1.1.2",
+ "webbrowser",
+]
+
+[[package]]
 name = "rustc_version"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2121,35 +2150,6 @@ name = "scopeguard"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d29ab0c6d3fc0ee92fe66e2d99f700eab17a8d57d1c1d3b748380fb20baa78cd"
-
-[[package]]
-name = "seasnft7"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "csv",
- "embed-resource",
- "futures",
- "lettre",
- "lettre_email",
- "log",
- "log4rs",
- "md5",
- "once_cell",
- "opener",
- "reqwest",
- "schemars",
- "serde",
- "serde_json",
- "serde_yaml",
- "sqlx",
- "tokio",
- "tracing",
- "tracing-subscriber",
- "umya-spreadsheet",
- "uuid 1.1.2",
- "webbrowser",
-]
 
 [[package]]
 name = "security-framework"
