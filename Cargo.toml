@@ -38,4 +38,4 @@ md5 = "0.7.0"
 embed-resource = "1.7.1"
 
 [profile.release]
-lto = true # 开启LTO压缩二进制文件体积
+# lto = true # 开启LTO压缩二进制文件体积
