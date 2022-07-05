@@ -14,11 +14,12 @@ sudo apt install mingw-w64
 cargo build --release --target x86_64-pc-windows-gnu
 ```
 
-### 交叉编译参考文档
+### 编译参考文档
 - https://www.cnblogs.com/007sx/p/15191400.html
 - [Rust 交叉编译与条件编译总结](https://www.jianshu.com/p/0e4251bc10eb)
 - [如何在Linux操作系统上交叉编译Rust程序？](https://magiclen.org/rust-cross-compile/)
 - [Rust交叉编译Mac编译Linux/Windows平台](https://www.cnblogs.com/007sx/p/15191400.html)
+- [减少rust编译后程序体积](https://www.jianshu.com/p/279407cad24c)
 
 ## 工具库
 
@@ -79,3 +80,7 @@ cargo build --release --target x86_64-pc-windows-gnu
 - [crates.io](https://crates.io/)
 - [GitHub软件库精选](https://github.com/rust-unofficial/awesome-rust)
 
+
+## Windows 编译软件图标
+- [给rust写的windows程序加个图标](https://zhuanlan.zhihu.com/p/366341784)
+- [embed-resource](https://crates.io/crates/embed-resource)
