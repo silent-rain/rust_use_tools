@@ -104,3 +104,5 @@ cargo build --release --target x86_64-pc-windows-gnu
 
 ## 库参考文档
 - [Rodio - 一个Rust音频播放库](https://blog.csdn.net/u012067469/article/details/109153091)
+- [Rust Cargo 使用总结](http://www.javashuo.com/article/p-cyeyuedk-bh.html)
+
