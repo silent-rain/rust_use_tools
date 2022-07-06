@@ -19,4 +19,15 @@ fn main() {
     warn!("this is a log level warn");
     error!("this is a log level error");
     error!("this is a log level error");
+    let s = demo(10);
+    println!("{:?}", s);
+    let s = demo(999);
+    println!("{:?}", s);
+}
+
+use once_cell::sync::OnceCell;
+static POOL: OnceCell<i32> = OnceCell::new();
+fn demo(i :i32) -> i32{
+    let pool = POOL.get_or_init(|| i);
+    *pool
 }

@@ -105,4 +105,4 @@ cargo build --release --target x86_64-pc-windows-gnu
 ## 库参考文档
 - [Rodio - 一个Rust音频播放库](https://blog.csdn.net/u012067469/article/details/109153091)
 - [Rust Cargo 使用总结](http://www.javashuo.com/article/p-cyeyuedk-bh.html)
-
+- [要如何实现一个全局变量的初始化（单例）](https://rustcc.cn/article?id=31cfe6b0-4e36-44c9-a2b7-ea53486dde9e)
