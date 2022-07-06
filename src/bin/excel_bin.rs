@@ -3,7 +3,7 @@
  * umya-spreadsheet = "0.7"
  */
 
-use rust_use_tools::excel;
+use crate::excel;
 
 fn main() {
     let data_list = vec![
