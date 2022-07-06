@@ -10,7 +10,7 @@ use std::fs::read_to_string;
 use std::sync::Arc;
 
 // 配置文件
-const APP_CONFIG_FILE: &str = "./app.yml";
+const APP_CONFIG_FILE: &str = "./app_tools/app.yml";
 // 全局配置对象
 static GLOBAL_CONFIG: Lazy<Arc<Config>> = Lazy::new(|| {
     let config = parse_config(APP_CONFIG_FILE).unwrap_or_else(|err| {
@@ -22,7 +22,7 @@ static GLOBAL_CONFIG: Lazy<Arc<Config>> = Lazy::new(|| {
 /// 解析配置文件
 /// # Examples
 /// ```
-/// let config = parse_config("./app.yml");
+/// let config = parse_config("./app_tools/app.yml");
 /// assert!(config.is_ok());
 /// ```
 fn parse_config(path: &str) -> Result<Config, Box<dyn error::Error>> {

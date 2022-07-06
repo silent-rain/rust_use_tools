@@ -6,7 +6,7 @@
 use tracing::{debug_span, info, info_span};
 use tracing_subscriber::prelude::*;
 
-use rust_use_tools::tracing_logger::custom_layer::CustomLayer;
+use app_tools::tracing_logger::custom_layer::CustomLayer;
 
 fn main() {
     tracing_subscriber::registry().with(CustomLayer).init();

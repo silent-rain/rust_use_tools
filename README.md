@@ -1,6 +1,22 @@
 # rust_use_tools
 rust 用例工具箱
 
+## 工作空间
+- 运行指定的包
+
+```
+cargo run -p app_tools
+```
+- 运行指定的包, 包中存在多个二进制crate
+```
+cargo run -p app_tools --bin app_tools
+```
+- 编译指定的包, 包中存在多个二进制crate
+```
+cargo build
+cargo build -p app_tools
+cargo build -p app_tools --bin app_tools
+```
 
 ## 编译
 - 编译(Linux环境程序)
