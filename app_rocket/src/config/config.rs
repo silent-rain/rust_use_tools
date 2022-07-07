@@ -1,33 +1,33 @@
 /*!配置文件
 */
-use once_cell::sync::Lazy;
+use once_cell::sync::OnceCell;
 use serde::{Deserialize, Serialize};
 use serde_yaml;
 use std::error;
 use std::fs::read_to_string;
 use std::sync::Arc;
 
-// 配置文件
-const APP_CONFIG_FILE: &str = "./app_rocket/app.yml";
 // 全局配置对象
-static GLOBAL_CONFIG: Lazy<Arc<Config>> = Lazy::new(|| {
-    let config = parse_config(APP_CONFIG_FILE).unwrap_or_else(|err| {
-        panic!("配置初始化失败! err: {}", err);
-    });
-    Arc::new(config)
-});
+static GLOBAL_CONFIG: OnceCell<Arc<Config>> = OnceCell::new();
+// static GLOBAL_CONFIG: Lazy<Arc<Config>> = Lazy::new(|| {
+//     let config = parse_config(APP_CONFIG_FILE).unwrap_or_else(|err| {
+//         panic!("配置初始化失败! err: {}", err);
+//     });
+//     Arc::new(config)
+// });
 
-/// 解析配置文件
+/// 初始化, 解析配置文件
 /// # Examples
 ///
 /// ```
-/// let config = parse_config("./app.yml");
+/// let config = init_config("./app.yml");
 /// assert!(config.is_ok());
 /// ```
-fn parse_config(path: &str) -> Result<Config, Box<dyn error::Error>> {
+pub fn init_config(path: &str) -> Result<(), Box<dyn error::Error>> {
     let content = read_to_string(&path)?;
     let config: Config = serde_yaml::from_str(&content)?;
-    Ok(config)
+    GLOBAL_CONFIG.get_or_init(|| Arc::new(config));
+    Ok(())
 }
 
 /// 获取全局配置
@@ -37,7 +37,11 @@ fn parse_config(path: &str) -> Result<Config, Box<dyn error::Error>> {
 /// assert!(config.is_ok());
 /// ```
 pub fn global_config() -> Arc<Config> {
-    GLOBAL_CONFIG.clone()
+    let config = GLOBAL_CONFIG.get();
+    match config {
+        Some(config) => config.clone(),
+        None => panic!("configuration not initialized!"),
+    }
 }
 
 /// 全局配置 结构
@@ -72,9 +76,9 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_parse_config() {
+    fn test_init() {
         let path = "./app.yml";
-        let config = parse_config(path);
+        let config = init_config(path);
         assert!(config.is_ok())
     }
 
