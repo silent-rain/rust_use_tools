@@ -1,5 +1,6 @@
 /*!配置文件
 */
+use log;
 use once_cell::sync::OnceCell;
 use serde::{Deserialize, Serialize};
 use serde_yaml;
@@ -9,12 +10,6 @@ use std::sync::Arc;
 
 // 全局配置对象
 static GLOBAL_CONFIG: OnceCell<Arc<Config>> = OnceCell::new();
-// static GLOBAL_CONFIG: Lazy<Arc<Config>> = Lazy::new(|| {
-//     let config = parse_config(APP_CONFIG_FILE).unwrap_or_else(|err| {
-//         panic!("配置初始化失败! err: {}", err);
-//     });
-//     Arc::new(config)
-// });
 
 /// 初始化, 解析配置文件
 /// # Examples
@@ -39,19 +34,22 @@ pub fn init_config(path: &str) -> Result<(), Box<dyn error::Error>> {
 pub fn global_config() -> Arc<Config> {
     let config = GLOBAL_CONFIG.get();
     match config {
-        Some(config) => config.clone(),
-        None => panic!("configuration not initialized!"),
+        Some(config) => Arc::clone(config),
+        None => {
+            log::error!("configuration not initialized!");
+            panic!("configuration not initialized!")
+        }
     }
 }
 
 /// 全局配置 结构
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, PartialEq, Serialize, Deserialize, Clone)]
 pub struct Config {
     pub mysql: Mysql,
 }
 
 /// 数据库配置 结构
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, PartialEq, Serialize, Deserialize, Clone)]
 pub struct Mysql {
     #[serde(rename = "host")]
     pub host: String, // 服务地址
@@ -61,8 +59,8 @@ pub struct Mysql {
     pub user: String, // 账号
     #[serde(rename = "password")]
     pub password: String, // 密码
-    #[serde(rename = "db")]
-    pub db: String, // DB 数据库名称
+    #[serde(rename = "db_name")]
+    pub db_name: String, // DB 数据库名称
     #[serde(rename = "pool_min_idle")]
     pub pool_min_idle: u64, // 最小连接数
     #[serde(rename = "pool_max_open")]
@@ -91,14 +89,15 @@ mod tests {
     #[test]
     fn test_global_config() {
         let config = global_config();
+        let mysql = config.mysql.to_owned();
         assert_ne!(
-            config.mysql,
+            mysql,
             Mysql {
                 host: "".to_string(),
                 port: 0,
                 user: "".to_string(),
                 password: "".to_string(),
-                db: "".to_string(),
+                db_name: "".to_string(),
                 pool_min_idle: 0,
                 pool_max_open: 0,
                 timeout_seconds: 0

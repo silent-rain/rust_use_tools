@@ -1,2 +1,3 @@
 mod config;
-pub use config::{init_config, global_config};
+pub use config::Mysql;
+pub use config::{global_config, init_config};
