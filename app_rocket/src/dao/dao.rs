@@ -115,38 +115,3 @@ async fn create_sqlite_db(database_url: &str) -> Result<(), Box<dyn std::error::
         .await?;
     Ok(())
 }
-
-/*
-
-    // 插入记录
-    // let sql = "INSERT INTO todos ( id,description ,done)VALUES ( $1,$2,$3 )";
-    // let count = sqlx::query(sql)
-    //     .bind(3)
-    //     .bind("test3")
-    //     .bind(false)
-    //     .execute(&mut conn)
-    //     .await?;
-    // println!("{:?}", count);
-
-    // 更新记录
-    // let sql = "UPDATE todos SET done = TRUE WHERE id = $1";
-    // let count = sqlx::query(sql).bind(3).execute(&mut conn).await?;
-    // println!("{:?}", count);
-
-    // 查询记录
-    // let sql = "select id,description,done from todos WHERE id = $1";
-    // let mut rows = sqlx::query(sql).bind(1).fetch(&mut conn);
-    // while let Some(row) = rows.try_next().await? {
-    //     let id: i32 = row.get(0);
-    //     // map the row into a user-defined domain type
-    //     let description: String = row.try_get("description")?;
-    //     let done: bool = row.get(2);
-    //     println!("{},{},{}", id, description, done);
-    // }
-
-    // 删除记录
-    let sql = "delete from todos  WHERE id = $1";
-    let count = sqlx::query(sql).bind(1).execute(&mut conn).await?;
-    println!("{:?}", count);
-
-*/
