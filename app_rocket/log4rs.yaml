@@ -18,7 +18,7 @@ appenders:
       kind: compound # 默认值, 即使用所有 policy
       trigger: # 当文件超过10mb 时触发 rotate
         kind: size
-        limit: 1kb # mb/kb
+        limit: 50mb # mb/kb
       roller: # rotate 类型
         kind: fixed_window # delete/fixed_window
         pattern: "log/log-{}.log" # 注意, 需要至少包含 "{}" 用于插入索引值
