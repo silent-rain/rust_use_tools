@@ -11,12 +11,15 @@ use std::time;
 use crate::config;
 
 // 全局数据库MySql对象
+#[allow(dead_code)]
 static GLOBAL_MYSQL_DAO: OnceCell<Arc<Pool<MySql>>> = OnceCell::new();
 // 全局数据库Sqlite对象
+#[allow(dead_code)]
 static GLOBAL_SQLITE_DAO: OnceCell<Arc<Pool<Sqlite>>> = OnceCell::new();
 
 // 获取全局MySQL数据库对象
-pub async fn global_mysql() -> Arc<Pool<MySql>> {
+#[allow(dead_code)]
+pub fn global_mysql() -> Arc<Pool<MySql>> {
     let db_dao = GLOBAL_MYSQL_DAO.get();
     match db_dao {
         Some(db_dao) => Arc::clone(db_dao),
@@ -28,7 +31,8 @@ pub async fn global_mysql() -> Arc<Pool<MySql>> {
 }
 
 // 获取全局Sqlite数据库对象
-pub async fn global_splite() -> Arc<Pool<Sqlite>> {
+#[allow(dead_code)]
+pub fn global_splite() -> Arc<Pool<Sqlite>> {
     let db_dao = GLOBAL_SQLITE_DAO.get();
     match db_dao {
         Some(db_dao) => Arc::clone(db_dao),
@@ -45,6 +49,7 @@ pub async fn global_splite() -> Arc<Pool<Sqlite>> {
 /// db = connect_mysql_db(&config::Mysql{})
 /// assert!(db.is_ok());
 /// ```
+#[allow(dead_code)]
 pub async fn connect_mysql_db(conf: &config::Mysql) -> Result<(), Box<dyn std::error::Error>> {
     let database_url = format!(
         "mysql://{}:{}@{}:{}/{}",
@@ -68,9 +73,10 @@ pub async fn connect_mysql_db(conf: &config::Mysql) -> Result<(), Box<dyn std::e
 /// db = connect_sqlite_db(&config::Sqlite{})
 /// assert!(db.is_ok());
 /// ```
+#[allow(dead_code)]
 pub async fn connect_sqlite_db(conf: &config::Sqlite) -> Result<(), Box<dyn std::error::Error>> {
     // 创建 Sqlite3 数据库
-    create_sqlite_db(&conf.db_url);
+    create_sqlite_db(&conf.db_url).await?;
     // 创建连接池
     let pool = SqlitePoolOptions::new()
         // .max_connections(conf.pool_max_open) // 连接池的上限
@@ -98,6 +104,7 @@ pub async fn connect_sqlite_db(conf: &config::Sqlite) -> Result<(), Box<dyn std:
 /// https://blog.csdn.net/kk3909/article/details/107236877/
 /// https://blog.csdn.net/wyansai/article/details/105326744
 /// https://zhuanlan.zhihu.com/p/377943210
+#[allow(dead_code)]
 async fn create_sqlite_db(database_url: &str) -> Result<(), Box<dyn std::error::Error>> {
     let _pool = SqliteConnectOptions::from_str(database_url)?
         .journal_mode(SqliteJournalMode::Wal) // 设置数据库连接的日志模式

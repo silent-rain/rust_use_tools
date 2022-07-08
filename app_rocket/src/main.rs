@@ -25,4 +25,7 @@ async fn main() {
     if let Err(err) = dao::connect_sqlite_db(&config.sqlite.to_owned()).await {
         panic!("全局 sqlite 数据库实例初始化失败! err: {}", err);
     }
+
+   let s = dao::User::get().await;
+   println!("{:?}", s);
 }
