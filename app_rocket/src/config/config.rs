@@ -46,9 +46,10 @@ pub fn global_config() -> Arc<Config> {
 #[derive(Debug, PartialEq, Serialize, Deserialize, Clone)]
 pub struct Config {
     pub mysql: Mysql,
+    pub sqlite: Sqlite,
 }
 
-/// 数据库配置 结构
+/// Mysql 数据库配置 结构
 #[derive(Debug, PartialEq, Serialize, Deserialize, Clone)]
 pub struct Mysql {
     #[serde(rename = "host")]
@@ -62,11 +63,44 @@ pub struct Mysql {
     #[serde(rename = "db_name")]
     pub db_name: String, // DB 数据库名称
     #[serde(rename = "pool_min_idle")]
-    pub pool_min_idle: u64, // 最小连接数
+    pub pool_min_idle: u32, // 最小连接数
     #[serde(rename = "pool_max_open")]
-    pub pool_max_open: u64, // 最大连接数
+    pub pool_max_open: u32, // 最大连接数
     #[serde(rename = "timeout_seconds")]
     pub timeout_seconds: u64, // 连接超时时间单位秒
+}
+
+/// Sqlite3 数据库配置 结构
+#[derive(Debug, PartialEq, Serialize, Deserialize, Clone)]
+pub struct Sqlite {
+    // 缺失值时, 自动调用 DefaultSqlite::db_url 函数
+    #[serde(rename = "db_url", default = "DefaultSqlite::db_url")]
+    pub db_url: String, // Sqlite3 数据库地址
+    #[serde(rename = "pool_min_idle", default = "DefaultSqlite::pool_min_idle")]
+    pub pool_min_idle: u32, // 最小连接数
+    #[serde(rename = "pool_max_open", default = "DefaultSqlite::pool_max_open")]
+    pub pool_max_open: u32, // 最大连接数
+    #[serde(rename = "timeout_seconds", default = "DefaultSqlite::timeout_seconds")]
+    pub timeout_seconds: u64, // 连接超时时间单位秒
+}
+
+struct DefaultSqlite {}
+
+/// Sqlite3 缺失值, 默认调用函数
+impl DefaultSqlite {
+    fn db_url() -> String {
+        // "ssqlite::memory:".to_owned()
+        "sqlite://app_rocket/data.sqlite3".to_string()
+    }
+    fn pool_min_idle() -> u32 {
+        8
+    }
+    fn pool_max_open() -> u32 {
+        32
+    }
+    fn timeout_seconds() -> u64 {
+        15
+    }
 }
 
 #[cfg(test)]
