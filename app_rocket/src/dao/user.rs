@@ -42,6 +42,7 @@ pub struct User {
 }
 
 impl User {
+    // 按字段读取记录
     pub async fn get() -> Result<(), Box<dyn std::error::Error>> {
         let conn = global_splite();
         let sql = "select * FROM user WHERE name = $1";
@@ -54,6 +55,39 @@ impl User {
             let name: String = row.try_get("name")?;
             println!("======== {},{},{},{}", id, age, name, phone);
         }
+        Ok(())
+    }
+    // 插入记录
+    pub async fn post() -> Result<(), Box<dyn std::error::Error>> {
+        let conn = global_splite();
+        let sql = "INSERT INTO user (name,gender,age,phone) VALUES ( $1,$2,$3,$4 )";
+        let count = sqlx::query(sql)
+            .bind("张思")
+            .bind(0)
+            .bind(19)
+            .bind("183****1246")
+            .execute(conn.as_ref())
+            .await?;
+        // SqliteQueryResult { changes: 1, last_insert_rowid: 4 }
+        println!("{:?}", count);
+        Ok(())
+    }
+    // 更新记录
+    pub async fn update() -> Result<(), Box<dyn std::error::Error>> {
+        let conn = global_splite();
+        let sql = "UPDATE user SET birth = 'te-updated' WHERE id = $1";
+        let count = sqlx::query(sql).bind(1).execute(conn.as_ref()).await?;
+        // SqliteQueryResult { changes: 1, last_insert_rowid: 0 }
+        println!("{:?}", count);
+        Ok(())
+    }
+    // 删除记录
+    pub async fn delete() -> Result<(), Box<dyn std::error::Error>> {
+        let conn = global_splite();
+        let sql = "delete from user  WHERE name = $1";
+        let count = sqlx::query(sql).bind("张珊").execute(conn.as_ref()).await?;
+        // SqliteQueryResult { changes: 3, last_insert_rowid: 0 }
+        println!("{:?}", count);
         Ok(())
     }
 }

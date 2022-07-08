@@ -26,6 +26,16 @@ async fn main() {
         panic!("全局 sqlite 数据库实例初始化失败! err: {}", err);
     }
 
-   let s = dao::User::get().await;
-   println!("{:?}", s);
+    // if let Err(err) = dao::User::post().await {
+    //     println!("post: {:?}", err);
+    // }
+    // if let Err(err) = dao::User::update().await {
+    //     println!("post: {:?}", err);
+    // }
+    // if let Err(err) = dao::User::delete().await {
+    //     println!("post: {:?}", err);
+    // }
+    // if let Err(err) = dao::User::get().await {
+    //     println!("get: {:?}", err);
+    // }
 }
