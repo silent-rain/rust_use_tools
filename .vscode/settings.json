@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:rust_use_tools}/app_rocket/data.sqlite3",
+            "name": "app_roket"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
