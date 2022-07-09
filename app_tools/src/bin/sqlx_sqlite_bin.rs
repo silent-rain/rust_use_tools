@@ -3,7 +3,7 @@
  * [dependencies]
  * futures = "0.3.21"
  * tokio = { version = "1.17.0", features = ["full"] }
- * sqlx = {version = "0.6.0", default-features = false, features = ["runtime-tokio-native-tls", "chrono", "mysql", "sqlite"]}
+ * sqlx = {version = "0.6.0", default-features = false, features = ["runtime-tokio-native-tls", "chrono", "mysql", "sqlite", "macros"]}
  */
 use futures::TryStreamExt;
 use sqlx::sqlite::{SqliteConnectOptions, SqliteJournalMode, SqlitePool};
