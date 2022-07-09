@@ -7,12 +7,12 @@ use log4rs;
 #[tokio::main]
 async fn main() {
     // 初始化日志配置
-    if let Err(err) = log4rs::init_file("./app_rocket/log4rs.yaml", Default::default()) {
+    if let Err(err) = log4rs::init_file("./log4rs.yaml", Default::default()) {
         log::warn!("log init config error: {}", err);
     }
 
     // 初始化全局配置实例
-    if let Err(err) = config::init_config("./app_rocket/app.yml") {
+    if let Err(err) = config::init_config("./app.yml") {
         panic!("全局配置实例初始化失败! err: {}", err);
     }
 

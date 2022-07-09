@@ -119,23 +119,4 @@ mod tests {
         let yaml_str = include_str!("../../app.yml");
         assert_ne!(yaml_str, "");
     }
-
-    #[test]
-    fn test_global_config() {
-        let config = global_config();
-        let mysql = config.mysql.to_owned();
-        assert_ne!(
-            mysql,
-            Mysql {
-                host: "".to_string(),
-                port: 0,
-                user: "".to_string(),
-                password: "".to_string(),
-                db_name: "".to_string(),
-                pool_min_idle: 0,
-                pool_max_open: 0,
-                timeout_seconds: 0
-            }
-        );
-    }
 }

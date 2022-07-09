@@ -14,4 +14,9 @@ log = "0.4.16"
 log4rs = "1.0.0"
 tokio = { version = "1.17.0", features = ["full"] }
 futures = "0.3.21"
-sqlx = {version = "0.6.0", default-features = false, features = ["runtime-tokio-native-tls", "chrono", "mysql", "sqlite", "macros"]}
+sqlx = { version = "0.6.0", default-features = false, features = ["runtime-tokio-native-tls", "chrono", "mysql", "sqlite", "macros"]}
+
+[dev-dependencies]
+cargo-watch = { version= "8.1.1" } # Cargo Watch监视项目的源代码以获取更改，并在更改发生时运行Cargo命令
+cargo-tarpaulin = { version= "0.20.0" } # 代码覆盖工具
+quickcheck = "1.0.3" # 一种使用随机生成的输入进行基于属性的测试的方法
