@@ -5,8 +5,7 @@
 use crate::dao::global_splite;
 use futures::TryStreamExt;
 use serde::{Deserialize, Serialize};
-use sqlx::sqlite::SqliteRow;
-use sqlx::{Connection, FromRow, Row, SqliteConnection};
+use sqlx::{FromRow, Row};
 
 /*
 CREATE TABLE IF NOT EXISTS `runoob_tbl`(
@@ -89,7 +88,7 @@ impl User {
             .bind("张思")
             .fetch_one(conn.as_ref())
             .await?;
-            println!("{:?}", row);
+        println!("{:?}", row);
         Ok(row)
     }
     // 结构化读取记录 fetch_all
