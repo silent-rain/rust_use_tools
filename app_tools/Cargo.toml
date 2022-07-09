@@ -33,6 +33,7 @@ umya-spreadsheet = "0.7"
 futures = "0.3.21"
 sqlx = {version = "0.6.0", default-features = false, features = ["runtime-tokio-native-tls", "chrono", "mysql", "sqlite", "macros"]}
 md5 = "0.7.0"
+dotenv= "0.15.0"
 
 [build-dependencies]
 embed-resource = "1.7.1"
