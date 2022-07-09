@@ -83,7 +83,8 @@ cargo clippy
 - [x] QuickCheck 一种使用随机生成的输入进行基于属性的测试的方法。
 - [x] speculate 受RSpec启发的最小锈蚀测试框架。
 - [x] parking_lot 比Rust标准库更小、更快和更灵活的互斥、RwLock、Condvar和Once的实现，以及支持递归锁定的可重入tmutex类型。它还公开了一个低级API，用于创建自己的高效同步原语。
-- [x] dotenv 用于设置环境变量,实现开发或测试环境切换。
+- [ ] dotenv 用于设置环境变量,实现开发或测试环境切换。
+
 
 ### Log4rs 的 pattern 支持以下内容：
 - d，data 日期，默认为 ISO 9601 格式，可以通过 {d(%Y-%m-%d %H:%M:%S)} 这种方式改变日期格式
