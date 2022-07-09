@@ -2,11 +2,11 @@
  *
 */
 
+use crate::dao::global_splite;
 use futures::TryStreamExt;
 use serde::{Deserialize, Serialize};
-use sqlx::Row;
-
-use crate::dao::global_splite;
+use sqlx::sqlite::SqliteRow;
+use sqlx::{Connection, FromRow, Row, SqliteConnection};
 
 /*
 CREATE TABLE IF NOT EXISTS `runoob_tbl`(
@@ -26,9 +26,9 @@ CREATE TABLE IF NOT EXISTS `runoob_tbl`(
 */
 
 /// User 结构
-#[derive(Debug, PartialEq, Serialize, Deserialize, Clone)]
+#[derive(Debug, PartialEq, Serialize, Deserialize, Clone, FromRow)]
 pub struct User {
-    pub id: u64,          // 用户ID
+    pub id: u32,          // 用户ID
     pub name: String,     // 姓名
     pub gender: bool,     // 性别: 0:女,1:男
     pub age: u32,         // 年龄
@@ -42,8 +42,8 @@ pub struct User {
 }
 
 impl User {
-    // 按字段读取记录
-    pub async fn get() -> Result<(), Box<dyn std::error::Error>> {
+    // 匿名读取记录 fetch
+    pub async fn _get_fetch() -> Result<(), Box<dyn std::error::Error>> {
         let conn = global_splite();
         let sql = "select * FROM user WHERE name = $1";
         let mut rows = sqlx::query(sql).bind("张珊").fetch(conn.as_ref());
@@ -56,6 +56,60 @@ impl User {
             println!("======== {},{},{},{}", id, age, name, phone);
         }
         Ok(())
+    }
+    // 匿名读取记录 fetch_one
+    pub async fn _get_fetch_one() -> Result<(), Box<dyn std::error::Error>> {
+        let conn = global_splite();
+        let sql = "select * FROM user WHERE name = $1";
+        let rows = sqlx::query(sql)
+            .bind("张思")
+            .fetch_one(conn.as_ref())
+            .await?;
+        println!("{:?}", rows.columns());
+        Ok(())
+    }
+    // 结构化读取记录 fetch_one SELECT $1
+    pub async fn _get_ser_fetch_one1() -> Result<(), Box<dyn std::error::Error>> {
+        let conn = global_splite();
+        // Make a simple query to return the given parameter (use a question mark `?` instead of `$1` for MySQL)
+        let row: (i64,) = sqlx::query_as("SELECT $1")
+            .bind(150_i64)
+            .fetch_one(conn.as_ref())
+            .await?;
+
+        assert_eq!(row.0, 150);
+        Ok(())
+    }
+    // 结构化读取记录 fetch_one
+    pub async fn get_ser_fetch_one2() -> Result<User, Box<dyn std::error::Error>> {
+        let conn = global_splite();
+        let sql = "select id,name,gender,age,birth,phone,email,password,status,created,updated FROM user WHERE name = ?";
+
+        let row: User = sqlx::query_as(sql)
+            .bind("张思")
+            .fetch_one(conn.as_ref())
+            .await?;
+            println!("{:?}", row);
+        Ok(row)
+    }
+    // 结构化读取记录 fetch_all
+    pub async fn get_ser_fetch_all() -> Result<Vec<User>, Box<dyn std::error::Error>> {
+        let conn = global_splite();
+        let sql = "
+        select
+         id,name,gender,age,birth,phone,email,password,status,created,updated
+        FROM user
+        WHERE name = ?
+         ";
+
+        let rows: Vec<User> = sqlx::query_as(sql)
+            .bind("张思")
+            .fetch_all(conn.as_ref())
+            .await?;
+        for row in &rows {
+            println!("{:?}", row);
+        }
+        Ok(rows)
     }
     // 插入记录
     pub async fn post() -> Result<(), Box<dyn std::error::Error>> {

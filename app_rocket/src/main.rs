@@ -38,4 +38,10 @@ async fn main() {
     // if let Err(err) = dao::User::get().await {
     //     println!("get: {:?}", err);
     // }
+    if let Err(err) = dao::User::get_ser_fetch_one2().await {
+        println!("get: {:?}", err);
+    }
+    if let Err(err) = dao::User::get_ser_fetch_all().await {
+        println!("get: {:?}", err);
+    }
 }
