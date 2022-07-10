@@ -2,7 +2,7 @@
 
 members = [
     "app_tools", # 基础库使用工具
-    "app_rocket", # rocket 综合使用
+    "app_sqlx_sqlite", # rocket 综合使用
 ]
 
 exclude = [
