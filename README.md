@@ -58,32 +58,32 @@ cargo clippy
 
 ## 工具库
 
-- [ ] yaml 读取yaml文件 serde_yaml
-- [ ] email 发送邮件 lettre lettre_email
-- [ ] 打开链接或文件 webbrowser/opener
-- [ ] 日志  log4rs/tracing
-- [ ] 序化、反序化 serde_json
-- [ ] CSV读写器 csv
-- [ ] excel 读写 calamine(reader)/umya-spreadsheet/excelize-rs/xlsxwriter-rs/xlsx-rs/calamine(reader)/teletypewriter
-- [ ] 时间库 chrono
-- [ ] 网络请求 Reqwest
-- [ ] uuid
-- [ ] md5
-- [ ] 文件夹操作 std::fs
-- [ ] 文件路径操作 std::path::Path
-- [ ] 单例模式/全局变量
-- [x] web服务 Rocket
-- [x] GUI Tauri
-- [ ] SQL sqlx 一种异步、纯Rust†SQL板条箱，具有编译时检查查询功能，没有DSL。
-- [x] rbatis 高性能、安全、动态 SQL（编译时）ORM 框架
-- [x] 基于属性的测试库 proptest
-- [x] 把Go或其他c-lib库混入Rust libloading
-- [ ] Cargo Watch监视项目的源代码以获取更改，并在更改发生时运行Cargo命令. cargo-watch
-- [ ] 代码覆盖工具 cargo-tarpaulin
-- [x] QuickCheck 一种使用随机生成的输入进行基于属性的测试的方法。
-- [x] speculate 受RSpec启发的最小锈蚀测试框架。
-- [x] parking_lot 比Rust标准库更小、更快和更灵活的互斥、RwLock、Condvar和Once的实现，以及支持递归锁定的可重入tmutex类型。它还公开了一个低级API，用于创建自己的高效同步原语。
-- [ ] dotenv 用于设置环境变量,实现开发或测试环境切换。
+- [x] yaml 读取yaml文件 serde_yaml
+- [x] email 发送邮件 lettre lettre_email
+- [x] 打开链接或文件 webbrowser/opener
+- [x] 日志  log4rs/tracing
+- [x] 序化、反序化 serde_json
+- [x] CSV读写器 csv
+- [x] excel 读写 calamine(reader)/umya-spreadsheet/excelize-rs/xlsxwriter-rs/xlsx-rs/calamine(reader)/teletypewriter
+- [x] 时间库 chrono
+- [x] 网络请求 Reqwest
+- [x] uuid
+- [x] md5
+- [x] dotenv 用于设置环境变量,实现开发或测试环境切换。
+- [x] 文件夹操作 std::fs
+- [x] 文件路径操作 std::path::Path
+- [x] 单例模式/全局变量
+- [ ] web服务 Rocket
+- [ ] GUI Tauri
+- [x] SQL sqlx 一种异步、纯Rust†SQL板条箱，具有编译时检查查询功能，没有DSL。
+- [ ] rbatis 高性能、安全、动态 SQL（编译时）ORM 框架
+- [ ] 基于属性的测试库 proptest
+- [ ] 把Go或其他c-lib库混入Rust libloading
+- [x] Cargo Watch监视项目的源代码以获取更改，并在更改发生时运行Cargo命令. cargo-watch
+- [x] 代码覆盖工具 cargo-tarpaulin
+- [ ] QuickCheck 一种使用随机生成的输入进行基于属性的测试的方法。
+- [ ] speculate 受RSpec启发的最小锈蚀测试框架。
+- [ ] parking_lot 比Rust标准库更小、更快和更灵活的互斥、RwLock、Condvar和Once的实现，以及支持递归锁定的可重入tmutex类型。它还公开了一个低级API，用于创建自己的高效同步原语。
 
 
 ### Log4rs 的 pattern 支持以下内容：
