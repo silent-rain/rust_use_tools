@@ -1,9 +1,57 @@
+[package]
+name = "app_tools"
+homepage = ""
+repository = ""
+keywords = ["tools", "examples"]
+readme = "README.md"
+license = "MIT"
+version = "0.1.0"
+edition = "2021"
+
 [workspace]
 
 members = [
-    "app_tools", # 基础库使用工具
-    "app_sqlx_sqlite", # rocket 综合使用
+    # "app_tools",       # 基础库使用工具
+    # "app_sqlx_sqlite", # rocket 综合使用
+
+    # 读写文件
+    "app/file/file_path",
+    "app/file/csv",
+    "app/file/excel",
+    "app/file/use_yaml",
+
+    # 文件夹
+    "app/directory/dir_tools",
+
+    # 网络库
+    "app/http/use_reqwest",
+
+    # 加密
+    "app/encryption/md5_tools",
+    "app/encryption/uuid_tools",
+
+    # ORM
+    "app/orm/app_sqlx_sqlite",
+    "app/orm/sqlx",
+
+    # 日志
+    "app/logs/use_log4rs",
+    "app/logs/use_tracing",
+
+    # 常用工具
+    "app/utils/env",
+    "app/utils/watch_project",
+    "app/utils/time",
+    "app/utils/open_file_link",
+    "app/utils/webbrowser",
+    "app/utils/use_serde_json",
+    "app/utils/use_embed_resource",
+    "app/utils/use_once_cell",
+    "app/utils/use_email",
 ]
 
-exclude = [
-]
+exclude = []
+
+
+[profile.release]
+# lto = true # 开启LTO压缩二进制文件体积

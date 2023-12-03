@@ -1,0 +1,10 @@
+[package]
+name = "use_embed_resource"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+[build-dependencies]
+embed-resource = "2.4"
